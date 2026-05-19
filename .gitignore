@@ -1,0 +1,104 @@
+# R 语言缓存与历史记录
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+*.Rproj.user/
+
+# --- 极其重要：防止大体积组学数据上传至 GitHub 导致仓库锁定 ---
+# 忽略所有子项目下的原始数据和处理数据，但保留文件夹结构
+*/data/raw/*
+!*/data/raw/.gitkeep
+*/data/processed/*
+!*/data/processed/.gitkeep
+
+# 忽略机器学习模型和大体积的 R 对象存储文件
+*/results/models/*
+!*/results/models/.gitkeep
+*/results/figures/*
+!*/results/figures/.gitkeep
+*/results/tables/*
+!*/results/tables/.gitkeep
+
+
+# ==========================================
+# 1. 数据与结果文件夹 (Data & Results) - 核心保护区
+# ==========================================
+# 忽略所有原始数据和中间缓存，确保临床基线数据和组学矩阵不会被上传
+
+# 忽略最终生成的高清图片和庞大的表格文件，保持 Git 仓库轻量
+
+# (可选) 如果你希望 Git 追踪这些空文件夹的结构，
+# 可以在这些文件夹里各放一个空的 .gitkeep 文件，并取消下面这行的注释
+# !*/.gitkeep
+
+# 忽略项目中可能散落的各类数据格式
+*.csv
+*.tsv
+*.txt
+*.rds
+*.RData
+*.rda
+*.xlsx
+*.xls
+*.h5
+*.h5ad
+*.arrow
+
+# 忽略图片和排版文件
+*.pdf
+*.png
+*.tiff
+*.jpg
+*.svg
+*.eps
+
+# ==========================================
+# 2. R 语言与环境配置 (R & renv)
+# ==========================================
+# 忽略 R 运行时的临时文件和历史记录
+.Rhistory
+.Rapp.history
+.Ruserdata
+.Rproj.user/
+
+# renv 包依赖管理目录配置
+# 仅追踪 renv.lock 和激活脚本，忽略庞大的本地包库
+renv/library/
+renv/local/
+renv/staging/
+renv/python/
+.Rprofile
+
+# ==========================================
+# 3. Positron / VS Code 编辑器专属 (IDE)
+# ==========================================
+# 忽略本地工作区状态，但保留共享的设置和插件推荐
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# 忽略本地历史修改缓存
+.history/
+*.code-workspace
+
+# ==========================================
+# 4. Notebook 与 Python 交互文件
+# ==========================================
+# 忽略 Jupyter Notebook 和 Quarto 的中间检查点和执行缓存
+.ipynb_checkpoints/
+*_files/
+*_cache/
+.jupyter_cache/
+__pycache__/
+
+# ==========================================
+# 5. 操作系统自动生成的隐藏文件 (OS specific)
+# ==========================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
